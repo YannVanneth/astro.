@@ -1,11 +1,11 @@
+---
 import { DATA } from '@/data/data.ts';
+import { Image } from 'astro:assets';
+---
 
-export const CategorySection = () => {
-  return (
-    <section id="category-section" className="grid grid-cols-3 gap-10">
-      {DATA.category_section.map((item, index) => {
-        return <img src={item.url} alt={item.label} />;
-      })}
-    </section>
-  );
-};
+<section id="category-section" class="grid grid-cols-3 gap-10 w-[72.5%] mx-auto overflow-hidden">
+  {DATA.category_section.map((item) => {
+    return <Image src={item.url} alt={item.label} width={450} height={150} class="object-contain rounded-sm"/>;
+  })}
+</section>
+

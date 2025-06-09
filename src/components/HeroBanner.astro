@@ -1,38 +1,29 @@
+---
 import { DATA } from '../data/data';
+import { Image } from 'astro:assets';
 import { Button } from '@/components/ui/button.tsx';
-import {Image} from "astro:assets"
-import ZENDO from "../../public/images/_logo.png";
+import BANNER from '../../public/images/mid_year_banner.jpg';
+---
 
-export const HeroBanner = () => {
+<section id="hero" class="w-[72.5%] mx-auto overflow-hidden">
+    <Image src={BANNER} alt="Zendo" />
 
-    return (
-    <section id="hero">
-      <Image src={ZENDO} alt="Zendo" />
-      <div className="flex justify-center">
-        <div className="absolute">
-          <div className="relative bottom-30 flex gap-4">
-            <Button className="border-2 px-6 py-5 rounded-sm bg-transparent font-['Helvetica'] text-base hover:bg-transparent hover:-translate-y-2 hover:transition-all hover:duration-300 cursor-pointer">
-              SHOP MEN
-            </Button>
-            <Button className="border-2 px-6 py-5 rounded-sm bg-transparent font-['Helvetica'] text-base hover:bg-transparent hover:-translate-y-2 hover:transition-all hover:duration-300 cursor-pointer">
-              SHOP WOMEN
-            </Button>
-          </div>
+    <div class="flex justify-center">
+        <div class="absolute">
+            <div class="relative bottom-30 flex gap-4">
+                <Button className="border-2 px-6 py-5 rounded-sm bg-transparent font-['Helvetica'] text-base hover:bg-transparent hover:-translate-y-2 hover:transition-all hover:duration-300 cursor-pointer">
+                    SHOP MEN
+                </Button>
+                <Button className="border-2 px-6 py-5 rounded-sm bg-transparent font-['Helvetica'] text-base hover:bg-transparent hover:-translate-y-2 hover:transition-all hover:duration-300 cursor-pointer">
+                    SHOP WOMEN
+                </Button>
+            </div>
         </div>
-      </div>
-      <BrandingSection />
-    </section>
-  );
-};
+    </div>
 
-// branding section
-const BrandingSection = () => {
-    const item = DATA.collaboration;
-  return (
-    <section className="flex justify-between">
-      {DATA.collaboration.map((item) => {
-        return <img src={item.url} alt={item.label} width={170} height={170} />;
-      })}
+    <section class="flex justify-between">
+        {DATA.collaboration.map(item => (
+                <Image src={item.url} alt={item.label} width="170" height="170" />
+        ))}
     </section>
-  );
-};
+</section>

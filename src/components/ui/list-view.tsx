@@ -1,18 +1,18 @@
-interface Props{
-    label : string;
-    image: string;
+import {ProductCard, type ProductCardProps} from "./ProductCard.tsx";
+import 'react-indiana-drag-scroll/dist/style.css';
+import ScrollContainer from "react-indiana-drag-scroll";
+
+interface Props {
+  item: ProductCardProps[];
 }
 
-export const CategoryCard = ({label, image} : Props) => {
-   return <div>
-       // image
-       <img className="image" src={image}/>
+export const ListView = ({ item = [] }: Props) => {
 
-       // label
-       <div className="absolute">
-           <div className="relative">
-              <p>{label}</p>
-           </div>
-       </div>
-   </div>
-}
+  return <ScrollContainer horizontal vertical={false} className="flex gap-6">
+      {item.map((product, index) => (
+          <div key={index} >
+            <ProductCard {...product} />
+          </div>
+      ))}
+  </ScrollContainer>
+};

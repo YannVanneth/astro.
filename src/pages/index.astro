@@ -1,7 +1,19 @@
 <---
-import Layout from "./Layouts/Layout.astro";
+
+import { Header } from "../components/Header";
+import Layout from "../layouts/Layout.astro";
+import HeroBanner from "../components/HeroBanner.astro";
+import CategorySection  from "../components/CategorySection.astro";
+import { ProductSections } from "@/components/ProductSection";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+
 ---
 
-<Layout>
-    <p>Hello App</p>
+<Layout title="Zendo" >
+    <Header client:visible/>
+    <HeroBanner/>
+    <CategorySection/>
+    <ProductSections client:idle/>
+    <Footer/>
 </Layout>
