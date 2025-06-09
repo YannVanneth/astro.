@@ -1,0 +1,11 @@
+import { DATA } from '@/data/data.ts';
+
+export const CategorySection = () => {
+  return (
+    <section id="category-section" className="grid grid-cols-3 gap-10">
+      {DATA.category_section.map((item, index) => {
+        return <img src={item.url} alt={item.label} />;
+      })}
+    </section>
+  );
+};

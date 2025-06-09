@@ -1,0 +1,25 @@
+---
+import "../styles/global.css";
+
+interface titleProps {
+    title? : string
+}
+
+// return back in object
+const { title } : titleProps = Astro.props ?? "Home Page";
+
+---
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Simple Todo App" />
+        <meta name="author" content="Vanneth Yann" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{title}</title>
+    </head>
+    <body>
+    <main class="w-[72.5%] mx-auto">
+        <slot/>
+    </main>
+    </body>
+</html>
